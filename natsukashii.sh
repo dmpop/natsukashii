@@ -17,15 +17,12 @@ CONFIG_DIR=$(dirname "$0")
 CONFIG="${CONFIG_DIR}/natsukashii.cfg"
 
 if [ ! -f "$CONFIG" ]; then
-    echo "Specify working directory and press [ENTER]:"
-    read WORK_DIR
-    echo 'WORK_DIR="'$WORK_DIR'"' >> "$CONFIG"
-    echo "Specify the desired file extension (e.g., JPG) and press [ENTER]:"
-    read EXT
-    echo 'EXT="'$EXT'"' >> "$CONFIG"
     echo "Specify directory containing photos and press [ENTER]:"
     read PHOTOS
     echo 'PHOTOS="'$PHOTOS'"' >> "$CONFIG"
+    echo "Specify the desired file extension (e.g., JPG) and press [ENTER]:"
+    read EXT
+    echo 'EXT="'$EXT'"' >> "$CONFIG"
     echo "Enter your Notify token and press [ENTER]."
     echo "Skip to disable notifications:"
     read NOTIFY_TOKEN
@@ -39,9 +36,9 @@ if [ ! -x "$(command -v exiftool)" ] ; then
     exit 1
     fi
 
-mkdir -p $WORK_DIR
+mkdir -p $CONFIG_DIR
 date1=$(date +%Y-%m-%d -d "365 days ago")
-last_year_dir="$WORK_DIR/$date1"
+last_year_dir="$CONFIG_DIR/$date1"
 
 mkdir -p $last_year_dir
 echo "Searching for photos from $date1..."
