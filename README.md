@@ -4,7 +4,7 @@ Natsukashii is a Bash shell script that can find photos taken on today's date a 
 
 # Intstallation and Usage
 
-The [Linux Photography](https://gumroad.com/l/linux-photography) book provides detailed instructions on installing and using Momo. Get your copy at [Google Play Store](https://play.google.com/store/books/details/Dmitri_Popov_Linux_Photography?id=cO70CwAAQBAJ) or [Gumroad](https://gumroad.com/l/linux-photography).
+The [Linux Photography](https://gumroad.com/l/linux-photography) book provides detailed instructions on installing and using Natsukashii. Get your copy at [Google Play Store](https://play.google.com/store/books/details/Dmitri_Popov_Linux_Photography?id=cO70CwAAQBAJ) or [Gumroad](https://gumroad.com/l/linux-photography).
 
 <img src="https://scribblesandsnaps.files.wordpress.com/2016/07/linux-photography-6.jpg" width="200"/>
 

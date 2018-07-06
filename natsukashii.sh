@@ -7,10 +7,9 @@
 # opkg install perl-image-exiftool
 
 echo
-echo "--------------------------------"
-echo "    Hello! I'm Natsukashii.     "
-echo "Let's find photos from the past!"
-echo "--------------------------------"
+echo "---------------------------------------"
+echo "Hello! Let's find photos from the past!"
+echo "---------------------------------------"
 echo
 
 CONFIG_DIR=$(dirname "$0")
@@ -38,9 +37,9 @@ if [ ! -x "$(command -v exiftool)" ] ; then
 
 mkdir -p $CONFIG_DIR
 date1=$(date +%Y-%m-%d -d "365 days ago")
-last_year_dir="$CONFIG_DIR/$date1"
+found_dir="$CONFIG_DIR/$date1"
 
-mkdir -p $last_year_dir
+mkdir -p $found_dir
 echo "Searching for photos from $date1..."
 
 results=$(find "$PHOTOS" -type f -name '*.'$EXT -not -path "*/.@__thumb/*")
@@ -52,21 +51,21 @@ do
     date2=$(exiftool -d "%Y-%m-%d" -DateTimeOriginal -S -s "$photo")
     echo "$photo"
     if [ "$date2" =  "$date1" ]; then
-	cp "$photo" $last_year_dir
+	cp "$photo" $found_dir
     fi
 done
 
-if [ ! -z "$(ls -A $last_year_dir)" ]; then
+if [ ! -z "$(ls -A $found_dir)" ]; then
     if [ ! -z "$NOTIFY_TOKEN" ]; then
     curl -k \
-"https://us-central1-notify-b7652.cloudfunctions.net/sendNotification?to=${NOTIFY_TOKEN}&text=Momo%20has%20found%20photos%20from%20${date1}!" \
+"https://us-central1-notify-b7652.cloudfunctions.net/sendNotification?to=${NOTIFY_TOKEN}&text=There%20are%20photos%20from%20${date1}!" \
 	 > /dev/null
     fi
 else
-    rm -rf $last_year_dir
+    rm -rf $found_dir
     if [ ! -z "$NOTIFY_TOKEN" ]; then
     curl -k \
-"https://us-central1-notify-b7652.cloudfunctions.net/sendNotification?to=${NOTIFY_TOKEN}&text=Momo%20has%20found%20no%20photos%20from%20${date1}!" \
+"https://us-central1-notify-b7652.cloudfunctions.net/sendNotification?to=${NOTIFY_TOKEN}&text=There%20no%20photos%20from%20${date1}!" \
 	 > /dev/null
     fi
 fi
