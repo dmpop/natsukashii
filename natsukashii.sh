@@ -64,8 +64,10 @@ if [ ! -z "$(ls -A $FOUND_DIR)" ]; then
 	 > /dev/null
     fi
     if [ ! -z "$WEB_DIR" ]; then
-	rm "$WEB_DIR"/photos/*.*
-	cp -R "$FOUND_DIR" "$WEB_DIR"/photos/
+        rm "$WEB_DIR"/found/*
+        cp -R "$FOUND_DIR" "$WEB_DIR"
+        rm -rf "$FOUND_DIR"
+	fi
 else
     rm -rf $FOUND_DIR
     if [ ! -z "$NOTIFY_TOKEN" ]; then
