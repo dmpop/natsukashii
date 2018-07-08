@@ -64,8 +64,7 @@ if [ ! -z "$(ls -A $FOUND_DIR)" ]; then
 	 > /dev/null
     fi
     if [ ! -z "$WEB_DIR" ]; then
-        rm "$WEB_DIR"/found/*
-        cp -R "$FOUND_DIR" "$WEB_DIR"
+        rsync -a --delete "$FOUND_DIR/" "$WEB_DIR"/photos
         rm -rf "$FOUND_DIR"
 	fi
 else
