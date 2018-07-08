@@ -64,6 +64,7 @@ if [ ! -z "$(ls -A $FOUND_DIR)" ]; then
 	 > /dev/null
     fi
     if [ ! -z "$WEB_DIR" ]; then
+	mogrify -resize 800> "$FOUND_DIR/"*.*
         rsync -a --delete "$FOUND_DIR/" "$WEB_DIR"/photos
         rm -rf "$FOUND_DIR"
 	fi
