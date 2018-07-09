@@ -59,7 +59,7 @@ done
 
 if [ ! -z "$(ls -A $FOUND_DIR)" ]; then
     if [ ! -z "$NOTIFY_TOKEN" ]; then
-	TEXT=$(sed 's/ /%20/g' <<< "You took photos on this day one year ago.")
+	TEXT=$(sed 's/ /%20/g' <<< "You have photos from the past!")
 	curl -k \
 "https://us-central1-notify-b7652.cloudfunctions.net/sendNotification?to=${NOTIFY_TOKEN}&text=${TEXT}" \
 	 > /dev/null
@@ -72,7 +72,7 @@ if [ ! -z "$(ls -A $FOUND_DIR)" ]; then
 else
     rm -rf $FOUND_DIR
     if [ ! -z "$NOTIFY_TOKEN" ]; then
-	TEXT=$(sed 's/ /%20/g' <<< "No photos today.")
+	TEXT=$(sed 's/ /%20/g' <<< "No photos from the past today.")
 	curl -k \
 "https://us-central1-notify-b7652.cloudfunctions.net/sendNotification?to=${NOTIFY_TOKEN}&text=${TEXT}" \
 	 > /dev/null

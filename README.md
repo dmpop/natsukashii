@@ -1,4 +1,4 @@
-# Natsukashii 懐かしい
+# Natsukashii :cherry_blossom: 懐かしい
 
 Natsukashii is a Bash shell script that can find photos taken on today's date a year ago.
 
@@ -22,7 +22,7 @@ To add a new feature or fix issues yourself, follow the following steps.
 2. Create a feature branch using the `git checkout -b new-feature` command
 3. Add your new feature or fix bugs and run the `git commit -am 'Add a new feature'` command to commit changes
 4. Push changes using the `git push origin new-feature` command
-5. Submit a pull request
+5. Submit a merge request
 
 ## Author
 

@@ -16,7 +16,7 @@
 	<link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura-earthly.css" type="text/css">
     </head>
     <body>
-	<h1>Stroll down the Memory Lane</h1>
+	<h1>Stroll down Memory Lane</h1>
 	<p>You took these photos exactly one year ago.</p>
 	<?php
 	$files = glob("photos/*.*");
