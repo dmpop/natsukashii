@@ -38,9 +38,7 @@ if [ ! -x "$(command -v exiftool)" ] ; then
     exit 1
     fi
 
-mkdir -p $CONFIG_DIR
 date1=$(date +%Y-%m-%d -d "365 days ago")
-
 mkdir -p $FOUND_DIR
 echo "Searching for photos from $date1..."
 
@@ -58,19 +56,19 @@ do
 done
 
 if [ ! -z "$(ls -A $FOUND_DIR)" ]; then
+    if [ ! -z "$WEB_DIR" ]; then
+	mogrify -resize "800>" "$FOUND_DIR/*.$EXT"
+        rsync -a --delete "$FOUND_DIR/" "$WEB_DIR/photos"
+        rm -rf "$FOUND_DIR"
+	fi
     if [ ! -z "$NOTIFY_TOKEN" ]; then
 	TEXT=$(sed 's/ /%20/g' <<< "You have photos from the past!")
 	curl -k \
-"https://us-central1-notify-b7652.cloudfunctions.net/sendNotification?to=${NOTIFY_TOKEN}&text=${TEXT}" \
+	"https://us-central1-notify-b7652.cloudfunctions.net/sendNotification?to=${NOTIFY_TOKEN}&text=${TEXT}" \
 	 > /dev/null
     fi
-    if [ ! -z "$WEB_DIR" ]; then
-	mogrify -resize 800> "$FOUND_DIR/"*.*
-        rsync -a --delete "$FOUND_DIR/" "$WEB_DIR"/photos
-        rm -rf "$FOUND_DIR"
-	fi
 else
-    rm -rf $FOUND_DIR
+    rm -rf "$FOUND_DIR"
     if [ ! -z "$NOTIFY_TOKEN" ]; then
 	TEXT=$(sed 's/ /%20/g' <<< "No photos from the past today.")
 	curl -k \

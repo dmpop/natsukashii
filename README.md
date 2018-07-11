@@ -2,9 +2,22 @@
 
 Natsukashii is a Bash shell script that can find photos taken on today's date a year ago.
 
-# Intstallation and Usage
+## Dependencies
 
-The [Linux Photography](https://gumroad.com/l/linux-photography) book provides detailed instructions on installing and using Natsukashii. Get your copy at [Google Play Store](https://play.google.com/store/books/details/Dmitri_Popov_Linux_Photography?id=cO70CwAAQBAJ) or [Gumroad](https://gumroad.com/l/linux-photography).
+- ExifTool
+- ImageMagick
+- sed
+- seq
+- Git (optional)
+
+## Intstallation and Usage
+
+1. Install the required packages on the machine that has all your photos.
+2. Use the following command to clone the project's Git repository in the desired location on the machine: ` git clone https://gitlab.com/dmpop/natsukashii.git`. Alternatively, grab the latest source code manually from the project's GitLab page, and unpack the downloaded archive.
+3. Switch to the resulting *natsukashii* directory and run the *natsukashii.sh* script using the `./natsukashii.sh` command.
+4. During the first run, provide the required information.
+
+The [Linux Photography](https://gumroad.com/l/linux-photography) book provides detailed information  on installing and using Natsukashii. Get your copy at [Google Play Store](https://play.google.com/store/books/details/Dmitri_Popov_Linux_Photography?id=cO70CwAAQBAJ) or [Gumroad](https://gumroad.com/l/linux-photography).
 
 <img src="https://scribblesandsnaps.files.wordpress.com/2016/07/linux-photography-6.jpg" width="200"/>
 
