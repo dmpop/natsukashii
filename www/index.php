@@ -11,15 +11,15 @@
     <head>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<meta name="viewport" content="width=device-width">
-	<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-	<link href="https://fonts.googleapis.com/css?family=Markazi+Text" rel="stylesheet" type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
 	<link rel="shortcut icon" href="favicon.ico" />
 	<link rel="stylesheet" href="sakura-dark.css" type="text/css">
     <title>Natsukashii</title>
     </head>
     <body>
 	<h1>Stroll down Memory Lane</h1>
-    <hr>
+    <p>/\/\/\/\/\/\/\/\/\</p>
 	<p>You took these photos exactly one year ago.</p>
     <?php
      $files = glob("photos/*.*");
@@ -31,7 +31,7 @@
          echo '<p></p>';
      }
     ?>
-    <hr>
+    <p>= = = = = = = = =</p>
 	<p>Made with <a href="https://gitlab.com/dmpop/natsukashii">Natsukashii</a>
     </body>
 </html>

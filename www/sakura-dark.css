@@ -7,7 +7,7 @@
 /* Body */
 html {
   font-size: 62.5%;
-  font-family: Lato, sans-serif; letter-spacing: 2px; }
+  font-family: 'Inconsolata', monospace; letter-spacing: 2px; }
 
 body {
   font-size: 1.8rem;
@@ -30,7 +30,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
-  font-family: "Markazi+Text", serif;
+  font-family: "Bungee Shade", cursive;
   font-weight: 400;
   overflow-wrap: break-word;
   word-wrap: break-word;
