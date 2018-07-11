@@ -68,6 +68,8 @@ if [ ! -z "$(ls -A $FOUND_DIR)" ]; then
 	 > /dev/null
     fi
 else
+    rsync -a --delete "$FOUND_DIR/" "$WEB_DIR/photos"
+    cp "$CONFIG_DIR/null.jpg" "$WEB_DIR/photos"
     rm -rf "$FOUND_DIR"
     if [ ! -z "$NOTIFY_TOKEN" ]; then
 	TEXT=$(sed 's/ /%20/g' <<< "No photos from the past today.")
