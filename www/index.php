@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
 	<link rel="shortcut icon" href="favicon.ico" />
 	<link rel="stylesheet" href="sakura-dark.css" type="text/css">
-    <title>Natsukashii</title>
+    <title>懐かしい</title>
     </head>
     <body>
 	<h1>Stroll down Memory Lane</h1>
