@@ -39,7 +39,8 @@ if [ ! -x "$(command -v exiftool)" ] ; then
     fi
 
 date1=$(date +%Y-%m-%d -d "365 days ago")
-mkdir -p $FOUND_DIR
+mkdir -p "$FOUND_DIR"
+mkdir -p "$WEB_DIR/photos"
 echo "Searching for photos from $date1..."
 
 results=$(find "$PHOTOS" -type f -name '*.'$EXT -not -path "*/.@__thumb/*")
@@ -51,22 +52,20 @@ do
     date2=$(exiftool -d "%Y-%m-%d" -DateTimeOriginal -S -s "$photo")
     echo "$photo"
     if [ "$date2" =  "$date1" ]; then
-	cp "$photo" $FOUND_DIR
+	cp "$photo" "$FOUND_DIR"
     fi
 done
 
 if [ ! -z "$(ls -A $FOUND_DIR)" ]; then
-    if [ ! -z "$WEB_DIR" ]; then
-	mogrify -resize "800>" "$FOUND_DIR/*.$EXT"
-        rsync -a --delete "$FOUND_DIR/" "$WEB_DIR/photos"
-        rm -rf "$FOUND_DIR"
-	fi
-    if [ ! -z "$NOTIFY_TOKEN" ]; then
-	TEXT=$(sed 's/ /%20/g' <<< "You have photos from the past!")
-	curl -k \
+    mogrify -resize "800>" "$FOUND_DIR/*.$EXT"
+    rsync -a --delete "$FOUND_DIR/" "$WEB_DIR/photos"
+    rm -rf "$FOUND_DIR"
+if [ ! -z "$NOTIFY_TOKEN" ]; then
+    TEXT=$(sed 's/ /%20/g' <<< "You have photos from the past!")
+    curl -k \
 	"https://us-central1-notify-b7652.cloudfunctions.net/sendNotification?to=${NOTIFY_TOKEN}&text=${TEXT}" \
-	 > /dev/null
-    fi
+	> /dev/null
+fi
 else
     rsync -a --delete "$FOUND_DIR/" "$WEB_DIR/photos"
     cp "$CONFIG_DIR/nopicture.jpg" "$WEB_DIR/photos"
