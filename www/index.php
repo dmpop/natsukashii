@@ -20,7 +20,6 @@
     <body>
 	<h1>Stroll down Memory Lane</h1>
     <p>/\/\/\/\/\/\/\/\/\</p>
-	<p>You took these photos exactly one year ago.</p>
     <?php
      $files = glob("photos/*.*");
      for ($i = 0; $i < count($files); $i++) {
