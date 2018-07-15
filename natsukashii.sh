@@ -38,10 +38,16 @@ if [ ! -x "$(command -v exiftool)" ] ; then
     exit 1
     fi
 
-date1=$(date +%Y-%m-%d -d "365 days ago")
+if [ -z "$1" ]; then
+    date1=$(date +%Y-%m-%d -d "365 days ago")
+    echo "Searching for photos from one year ago ..."
+else
+    date1=$(date +%m-%d)
+    echo "Searching for photos from the past ..."
+    fi
+
 mkdir -p "$FOUND_DIR"
 mkdir -p "$WEB_DIR/photos"
-echo "Searching for photos from $date1..."
 
 results=$(find "$PHOTOS" -type f -name '*.'$EXT -not -path "*/.@__thumb/*")
 lines=$(echo -e "$results" | wc -l)
@@ -49,7 +55,11 @@ lines=$(echo -e "$results" | wc -l)
 for line in $(seq 1 $lines)
 do
     photo=$(echo -e "$results" | sed -n "$line p")
-    date2=$(exiftool -d "%Y-%m-%d" -DateTimeOriginal -S -s "$photo")
+    if [ -z "$1" ]; then
+	date2=$(exiftool -d "%Y-%m-%d" -DateTimeOriginal -S -s "$photo")
+    else
+	date2=$(exiftool -d "%m-%d" -DateTimeOriginal -S -s "$photo")
+	fi
     echo "$photo"
     if [ "$date2" =  "$date1" ]; then
 	cp "$photo" "$FOUND_DIR"

@@ -17,6 +17,8 @@ Natsukashii is a Bash shell script that can find photos taken on today's date a 
 3. Switch to the resulting *natsukashii* directory and run the *natsukashii.sh* script using the `./natsukashii.sh` command.
 4. During the first run, provide the required information.
 
+By default, Natsukahii searches for photos from exactly one year ago. To search for photos taken on this date in any previous year, add the `all` flag to the command: `./natsukashii all`.
+
 The [Linux Photography](https://gumroad.com/l/linux-photography) book provides detailed information  on installing and using Natsukashii. Get your copy at [Google Play Store](https://play.google.com/store/books/details/Dmitri_Popov_Linux_Photography?id=cO70CwAAQBAJ) or [Gumroad](https://gumroad.com/l/linux-photography).
 
 <img src="https://scribblesandsnaps.files.wordpress.com/2016/07/linux-photography-6.jpg" width="200"/>
