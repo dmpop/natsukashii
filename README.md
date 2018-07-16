@@ -1,6 +1,6 @@
 # Natsukashii :cherry_blossom: 懐かしい
 
-Natsukashii is a Bash shell script that can find photos taken on today's date a year ago.
+Natsukashii is a simple photographic time machine that can find and show photos you took on today's date in the past.
 
 ## Dependencies
 
@@ -16,8 +16,6 @@ Natsukashii is a Bash shell script that can find photos taken on today's date a 
 2. Use the following command to clone the project's Git repository in the desired location on the machine: ` git clone https://gitlab.com/dmpop/natsukashii.git`. Alternatively, grab the latest source code manually from the project's GitLab page, and unpack the downloaded archive.
 3. Switch to the resulting *natsukashii* directory and run the *natsukashii.sh* script using the `./natsukashii.sh` command.
 4. During the first run, provide the required information.
-
-By default, Natsukahii searches for photos from exactly one year ago. To search for photos taken on this date in any previous year, add the `all` flag to the command: `./natsukashii all`.
 
 The [Linux Photography](https://gumroad.com/l/linux-photography) book provides detailed information  on installing and using Natsukashii. Get your copy at [Google Play Store](https://play.google.com/store/books/details/Dmitri_Popov_Linux_Photography?id=cO70CwAAQBAJ) or [Gumroad](https://gumroad.com/l/linux-photography).
 
