@@ -39,8 +39,6 @@ if [ ! -x "$(command -v exiftool)" ] ; then
     fi
 
 date1=$(date +%m-%d)
-echo "Searching for photos from the past ..."
-
 mkdir -p "$FOUND_DIR"
 mkdir -p "$WEB_DIR/photos"
 
