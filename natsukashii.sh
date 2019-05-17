@@ -30,7 +30,8 @@ if [ ! -f "$CONFIG" ]; then
 
 source "$CONFIG"
 
-if [ ! -x "$(command -v exiftool)" ] || [ ! -x "$(command -v seq)" ] || [ ! -x "$(command -v sed)" ] || [ ! -x "$(command -v mogrify)" ] || [ ! -x "$(command -v php)" ]; then
+if [ ! -x "$(command -v exiftool)" ] || [ ! -x "$(command -v seq)" ] || \
+   [ ! -x "$(command -v sed)" ] || [ ! -x "$(command -v mogrify)" ] || [ ! -x "$(command -v php)" ]; then
     echo "Required tools are missing. Install them before proceeding"
     exit 1
     fi
@@ -52,7 +53,7 @@ do
     fi
 done
 if [ ! -z "$(ls -A $ROOT_DIR/www/photos)" ]; then
-    mogrify -resize "800>" "$ROOT_DIR/www/photos/*.$EXT"
+    mogrify -resize "800>" "$ROOT_DIR/www/photos/*"
     if [ -z $1 ]; then
         killall php
         php -S 0.0.0.0:8000 -t "$ROOT_DIR/www" &
