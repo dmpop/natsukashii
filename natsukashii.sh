@@ -30,7 +30,7 @@ if [ ! -f "$CONFIG" ]; then
 
 source "$CONFIG"
 
-if [ ! -x "$(command -v exiftool)" ] || [ ! -x "$(command -v seq)" ] || [ ! -x "$(command -v mogrify)" ]; then
+if [ ! -x "$(command -v exiftool)" ] || [ ! -x "$(command -v seq)" ] || [ ! -x "$(command -v sed)" ] || [ ! -x "$(command -v mogrify)" ] || [ ! -x "$(command -v php)" ]; then
     echo "Required tools are missing. Install them before proceeding"
     exit 1
     fi
