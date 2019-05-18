@@ -5,6 +5,10 @@ $password = 'cowpat';
 /* Redirects here after login */
 $redirect_after_login = 'index.php';
 
+/* Set timezone to UTC */
+
+date_default_timezone_set('UTC');
+
 /* Will not ask password again for */
 $remember_password = strtotime('+30 days'); // 30 days
 
