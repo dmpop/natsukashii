@@ -22,6 +22,9 @@ if [ ! -f "$CONFIG" ]; then
     echo "Specify the desired file extension (e.g., JPG) and press [ENTER]:"
     read EXT
     echo 'EXT="'$EXT'"' >> "$CONFIG"
+    echo "Specify the desired port (e.g., 8000) and press [ENTER]:"
+    read PORT
+    echo 'PORT="'$PORT'"' >> "$CONFIG"
     echo "Enter your Notify token and press [ENTER]."
     echo "Skip to disable:"
     read NOTIFY_TOKEN
@@ -57,7 +60,7 @@ if [ ! -z "$(ls -A $ROOT_DIR/www/photos)" ]; then
     mogrify -resize "800>" "$ROOT_DIR/www/photos/*"
     if [ -z $1 ]; then
         killall php
-        php -S 0.0.0.0:8000 -t "$ROOT_DIR/www" &
+        php -S 0.0.0.0:$PORT -t "$ROOT_DIR/www" &
         fi
 if [ ! -z "$NOTIFY_TOKEN" ]; then
     TEXT=$(sed 's/ /%20/g' <<< "You have photos from the past! ｡^‿^｡")
