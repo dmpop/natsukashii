@@ -1,6 +1,6 @@
 <?php
 /* Your password */
-$password = 'cowpat';
+$password = 'password';
 
 /* Redirects here after login */
 $redirect_after_login = 'index.php';
