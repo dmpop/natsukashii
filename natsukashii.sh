@@ -32,7 +32,8 @@ source "$CONFIG"
 
 if [ ! -x "$(command -v exiftool)" ] || [ ! -x "$(command -v seq)" ] || \
    [ ! -x "$(command -v sed)" ] || [ ! -x "$(command -v mogrify)" ] || [ ! -x "$(command -v php)" ]; then
-    echo "Required tools are missing. Install them before proceeding"
+    echo "Make sure that the following packages are installed on your system:"
+    echo "ExifTool, seq, sed, ImageMagick, PHP"
     exit 1
     fi
 
