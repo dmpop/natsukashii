@@ -1,3 +1,7 @@
+<?php
+require_once('protect.php');
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 
 <html>
@@ -21,7 +25,6 @@
 	<h1>Stroll down Memory Lane</h1>
 	<p>/\/\/\/\/\/\/\/\/\</p>
 	<?php
-	require_once('protect.php');
 	$files = glob("photos/*.*");
 	for ($i = 0; $i < count($files); $i++) {
             $photo = $files[$i];
