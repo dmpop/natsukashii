@@ -69,6 +69,7 @@ if [ ! -z "$NOTIFY_TOKEN" ]; then
 	> /dev/null
 fi
 else
+    killall php
     if [ ! -z "$NOTIFY_TOKEN" ]; then
 	TEXT=$(sed 's/ /%20/g' <<< "No photos from the past. ●︿●")
 	curl -k \
