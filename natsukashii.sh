@@ -63,17 +63,11 @@ if [ ! -z "$(ls -A $ROOT_DIR/www/photos)" ]; then
         php -S 0.0.0.0:$PORT -t "$ROOT_DIR/www" &
         fi
 if [ ! -z "$NOTIFY_TOKEN" ]; then
-    TEXT=$(sed 's/ /%20/g' <<< "You have photos from the past! ｡^‿^｡")
-    curl -k \
-	"https://us-central1-notify-b7652.cloudfunctions.net/sendNotification?to=${NOTIFY_TOKEN}&text=${TEXT}" \
-	> /dev/null
+    curl "https://api.simplepush.io/send/${NOTIFY_TOKEN}/Natsukashii/You have photos from the past!"
 fi
 else
     killall php
     if [ ! -z "$NOTIFY_TOKEN" ]; then
-	TEXT=$(sed 's/ /%20/g' <<< "No photos from the past. ●︿●")
-	curl -k \
-"https://us-central1-notify-b7652.cloudfunctions.net/sendNotification?to=${NOTIFY_TOKEN}&text=${TEXT}" \
-	 > /dev/null
+    curl "https://api.simplepush.io/send/${NOTIFY_TOKEN}/Natsukashii/No photos from the past."
     fi
 fi
