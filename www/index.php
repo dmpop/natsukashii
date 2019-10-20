@@ -28,7 +28,7 @@ require_once('protect.php');
 	$files = glob("photos/*.*");
 	for ($i = 0; $i < count($files); $i++) {
             $photo = $files[$i];
-            $exif = exif_read_data($photo, 0, true);
+            $exif = @exif_read_data($photo, 0, true);
             echo "<h3>".$exif['EXIF']['DateTimeOriginal']."</h3>";
             echo '<img src="' . $photo . '" alt="" width="800"/>' . "<br /><br />";
             echo '<small>'.$exif['COMMENT']['0'].'</small>';
