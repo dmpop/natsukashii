@@ -24,7 +24,7 @@ if (isset($_POST['password']) && $_POST['password'] == $password) {
 	<head>
 	    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	    <meta name="viewport" content="width=device-width">
-	    <link rel="shortcut icon" href="favicon.ico" />
+	    <link rel="shortcut icon" href="favicon.png" />
 	    <link rel="stylesheet" href="sakura-dark.css" type="text/css">
 	    <title>懐かしい</title>
 	</head>

@@ -17,7 +17,7 @@ require_once('protect.php');
 	<meta name="viewport" content="width=device-width">
 	<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
-	<link rel="shortcut icon" href="favicon.ico" />
+	<link rel="shortcut icon" href="favicon.png" />
 	<link rel="stylesheet" href="sakura-dark.css" type="text/css">
 	<title>懐かしい</title>
     </head>
