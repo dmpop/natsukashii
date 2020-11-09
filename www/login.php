@@ -13,27 +13,28 @@ date_default_timezone_set('UTC');
 $remember_password = strtotime('+30 days'); // 30 days
 
 if (isset($_POST['password']) && $_POST['password'] == $password) {
-    setcookie("password", $password, $remember_password);
-    header('Location: ' . $redirect_after_login);
-    exit;
+	setcookie("password", $password, $remember_password);
+	header('Location: ' . $redirect_after_login);
+	exit;
 }
 ?>
 <!DOCTYPE html>
 <html>
-    <head>
-	<head>
-	    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-	    <meta name="viewport" content="width=device-width">
-	    <link rel="shortcut icon" href="favicon.png" />
-	    <link rel="stylesheet" href="sakura-dark.css" type="text/css">
-	    <title>懐かしい</title>
-	</head>
-    </head>
-    <body>
-	<div style="text-align:center;margin-top:50px;">
-            <form method="POST">
-		Password:  <input type="password" name="password">
-            </form>
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width">
+	<link rel="shortcut icon" href="favicon.png" />
+	<link rel="stylesheet" href="lit.css" type="text/css">
+	<title>懐かしい</title>
+</head>
+
+<body>
+	<div class="c">
+		<form method="POST">
+			Password: <input type="password" name="password">
+		</form>
 	</div>
-    </body>
+</body>
+
 </html>
