@@ -67,8 +67,8 @@ if [ ! -z "$(ls -A $ROOT_DIR/www/photos)" ]; then
         php -S 0.0.0.0:$PORT -t "$ROOT_DIR/www" &
     fi
     if [ $GIF = true ]; then
+        rm -rf "$HOME/*.gif"
         convert -delay 300 -loop 0 "$ROOT_DIR/www/photos/*" "$HOME/$date1.gif"
-        xdg-open "$HOME/$date1.gif"
     fi
     if [ ! -z "$NOTIFY_TOKEN" ]; then
         curl "https://api.simplepush.io/send/${NOTIFY_TOKEN}/Natsukashii/You have photos from the past!"
