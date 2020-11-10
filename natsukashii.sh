@@ -25,12 +25,12 @@ if [ ! -f "$CONFIG" ]; then
     echo "Specify the desired port (e.g., 8000) and press [ENTER]:"
     read PORT
     echo 'PORT="'$PORT'"' >>"$CONFIG"
-    echo "Enter your Notify token and press [ENTER]."
+    echo "Enter your notification token and press [ENTER]."
     echo "Skip to disable:"
     read NOTIFY_TOKEN
     echo 'NOTIFY_TOKEN="'$NOTIFY_TOKEN'"' >>"$CONFIG"
     echo "Generate animated GIF?"
-    echo "Type 'true' and press [ENTER]."
+    echo "Type Y and press [ENTER]."
     echo "Leave empty and press [ENTER] to disable:"
     read GIF
     echo 'GIF="'$GIF'"' >>"$CONFIG"
@@ -66,7 +66,7 @@ if [ ! -z "$(ls -A $ROOT_DIR/www/photos)" ]; then
         killall php
         php -S 0.0.0.0:$PORT -t "$ROOT_DIR/www" &
     fi
-    if [ $GIF = true ]; then
+    if [ ! -z $GIF ]; then
         rm "$HOME/*.gif"
         convert -delay 300 -loop 0 "$ROOT_DIR/www/photos/*" "$HOME/$date1.gif"
     fi

@@ -4,6 +4,7 @@ Natsukashii is a simple photographic time machine that can find and show photos 
 
 ## Dependencies
 
+- PHP
 - ExifTool
 - ImageMagick
 - sed
