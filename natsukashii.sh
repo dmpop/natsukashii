@@ -46,8 +46,8 @@ if [ ! -z "$(ls -A $ROOT_DIR/www/photos)" ]; then
         php -S 0.0.0.0:$PORT -t "$ROOT_DIR/www" &
     fi
     if [ ! -z $GIF ]; then
-        rm $HOME/*.gif
-        convert -delay 300 -loop 0 "$ROOT_DIR/www/photos/*" "$HOME/$date1.gif"
+        convert -delay 300 -loop 0 "$ROOT_DIR/www/photos/*" "$ROOT_DIR/www/photos/$date1.gif"
+        gifview -a "$ROOT_DIR/www/photos/$date1.gif" &
     fi
     if [ ! -z "$NOTIFY" ]; then
         curl --url 'smtps://'$SMTP_SERVER':'$SMTP_PORT --ssl-reqd \
