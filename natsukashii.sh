@@ -12,7 +12,16 @@ echo "Let's find photos from the past!"
 echo "--------------------------------"
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
-echo "Working..."
+
+spinner() {
+    local i sp n
+    sp='/-\|'
+    n=${#sp}
+    printf ' '
+    while sleep 0.1; do
+        printf "%s\b" "${sp:i++%n:1}"
+    done
+}
 
 CONFIG="${ROOT_DIR}/config.cfg"
 source "$CONFIG"
@@ -28,16 +37,21 @@ date1=$(date +%m-%d)
 rm -rf "$ROOT_DIR/www/photos/"
 mkdir -p "$ROOT_DIR/www/photos"
 
+printf "Working"
+spinner &
+
 results=$(find "$PHOTOS" -type f -name '*.'$EXT -not -path "*/.@__thumb/*")
 lines=$(echo -e "$results" | wc -l)
 
 for line in $(seq 1 $lines); do
     photo=$(echo -e "$results" | sed -n "$line p")
-    date2=$(exiftool -d "%m-%d" -DateTimeOriginal -S -s "$photo")
+    date2=$(exiftool -q -q -d "%m-%d" -DateTimeOriginal -S -s "$photo")
     if [ "$date2" = "$date1" ]; then
         cp "$photo" "$ROOT_DIR/www/photos/"
     fi
 done
+
+kill "$!"
 
 if [ ! -z "$(ls -A $ROOT_DIR/www/photos)" ]; then
     mogrify -resize "800>" "$ROOT_DIR/www/photos/*"
