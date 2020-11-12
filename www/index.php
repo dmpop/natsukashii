@@ -1,5 +1,6 @@
 <?php
 require_once('protect.php');
+error_reporting(E_ERROR);
 ?>
 
 <!DOCTYPE html>

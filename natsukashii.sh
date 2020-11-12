@@ -59,6 +59,9 @@ if [ ! -z "$(ls -A $ROOT_DIR/www/photos)" ]; then
         killall php
         php -S 0.0.0.0:$PORT -t "$ROOT_DIR/www" &
     fi
+    if [ ! -z "$FTP" ]; then
+        ncftpput -R -v -u "$FTP_USER" -p "$FTP_PASSWD" "$FTP_ADDR" "$FTP_DIR" "$ROOT_DIR/www/photos"
+    fi
     if [ ! -z $GIF ]; then
         convert -delay 300 -loop 0 "$ROOT_DIR/www/photos/*" "$ROOT_DIR/www/photos/$date1.gif"
         gifview -a "$ROOT_DIR/www/photos/$date1.gif" &

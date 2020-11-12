@@ -10,6 +10,7 @@ Natsukashii is a simple photographic time machine that can find and show photos 
 - sed
 - seq
 - cURL
+- ncftp (optional)
 - Git (optional)
 
 ## Intstallation and Usage
