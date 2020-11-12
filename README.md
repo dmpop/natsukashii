@@ -9,6 +9,8 @@ Natsukashii is a simple photographic time machine that can find and show photos 
 
 Natsukashii runs on Linux, and it has been tested on Linux Mint and openSUSE.
 
+<img src="natsukashii.png" alt="" width="300"/>
+
 ## Dependencies
 
 - PHP
