@@ -2,14 +2,14 @@
 
 Natsukashii is a simple photographic time machine that can find and show photos you took on today's date in the past. Here is what Natsukashii can do.
 
-1. Find photos matching the current day and month
-2. Create an animated GIF out of the found photos
-3. Serve the found photos on the local machine using a simple PHP application
-4. Upload the found photos to a remote server via FTP
+1. Find photos matching the current day and month.
+2. Create an animated GIF out of the found photos.
+3. Serve the found photos on the local machine using a simple PHP application.
+4. Upload the found photos to a remote server via FTP.
 
 Natsukashii runs on Linux, and it has been tested on Linux Mint and openSUSE.
 
-<img src="natsukashii.png" alt="" width="300"/>
+<img src="natsukashii.jpg" alt="" width="300"/>
 
 ## Dependencies
 
@@ -27,7 +27,7 @@ Natsukashii runs on Linux, and it has been tested on Linux Mint and openSUSE.
 1. Install the required packages on the machine that has all your photos. To do this on Linux Mint, run the command `sudo apt install php-cli exiftool imagemagick sed coreutils curl ncftp git`. On openSUSE, use the command `sudo zypper install php-cli exiftool ImageMagick sed coreutils curl ncftp git`.
 2. Use the following command to clone the project's Git repository in the desired location on the machine: `git clone https://github.com/dmpop/natsukashii.git`. Alternatively, grab the latest source code manually from the project's GitHub page, and unpack the downloaded archive.
 3. Edit the `config.cfg` configuration file.
-4. Switch to the *natsukashii/www* directory and change the default password in the _/login.php_ and _/protect.php_ files.
+4. Switch to the *natsukashii/www* directory and change the default password in the _login.php_ and _protect.php_ files.
 5. Switch to the *natsukashii* directory and run the *natsukashii.sh* script using the `./natsukashii.sh` command.
 
 ## Problems?
