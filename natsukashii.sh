@@ -60,6 +60,7 @@ if [ ! -z "$(ls -A $ROOT_DIR/www/photos)" ]; then
         php -S 0.0.0.0:$PORT -t "$ROOT_DIR/www" &
     fi
     if [ ! -z "$FTP" ]; then
+        curl -G "$RM_URL"
         ncftpput -R -v -u "$FTP_USER" -p "$FTP_PASSWD" "$FTP_ADDR" "$FTP_DIR" "$ROOT_DIR/www/photos"
     fi
     if [ ! -z $GIF ]; then
