@@ -55,19 +55,19 @@ kill "$!"
 
 if [ ! -z "$(ls -A $ROOT_DIR/www/photos)" ]; then
     mogrify -resize "800>" "$ROOT_DIR/www/photos/*"
-    if [ -z $1 ]; then
+    if [ $LOCAL_SERVER = true ]; then
         killall php
         php -S 0.0.0.0:$PORT -t "$ROOT_DIR/www" &
     fi
-    if [ ! -z "$FTP" ]; then
+    if [ $FTP = true ]; then
         curl -G "$RM_URL"
         ncftpput -R -v -u "$FTP_USER" -p "$FTP_PASSWD" "$FTP_ADDR" "$FTP_DIR" "$ROOT_DIR/www/photos"
     fi
-    if [ ! -z $GIF ]; then
+    if [ $GIF = true ]; then
         convert -delay 300 -loop 0 "$ROOT_DIR/www/photos/*" "$ROOT_DIR/www/photos/$date1.gif"
         gifview -a "$ROOT_DIR/www/photos/$date1.gif" &
     fi
-    if [ ! -z "$NOTIFY" ]; then
+    if [ $NOTIFY = true ]; then
         curl --url 'smtps://'$SMTP_SERVER':'$SMTP_PORT --ssl-reqd \
             --mail-from $MAIL_USER \
             --mail-rcpt $MAIL_USER \
@@ -76,7 +76,7 @@ if [ ! -z "$(ls -A $ROOT_DIR/www/photos)" ]; then
     fi
 else
     killall php
-    if [ ! -z "$NOTIFY" ]; then
+    if [ $NOTIFY = true ]; then
         curl --url 'smtps://'$SMTP_SERVER':'$SMTP_PORT --ssl-reqd \
             --mail-from $MAIL_USER \
             --mail-rcpt $MAIL_USER \
