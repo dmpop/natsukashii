@@ -158,18 +158,18 @@ em {
 @font-face {
     font-family: 'Barlow-Regular';
     font-weight: 400;
-    src: url('../woff/Barlow-Regular.woff2') format('woff');
+    src: url('../woff/Barlow-Regular.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'Barlow-Medium';
     font-weight: 500;
-    src: url('../woff/Barlow-Medium.woff2') format('woff');
+    src: url('../woff/Barlow-Medium.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'Barlow-LightItalic';
     font-weight: 300;
     font-style: italic;
-    src: url('../woff/Barlow-LightItalic.woff2') format('woff');
+    src: url('../woff/Barlow-LightItalic.woff2') format('woff2');
 }
